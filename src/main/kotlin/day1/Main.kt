@@ -1,17 +1,57 @@
 package day1
 
-import FileUtils
-
 fun main() {
-    val arr = IntArray(100)
-    for (i in 0..99) {
-        arr[i] = i
+    val fileUtils = FileUtils("src/main/kotlin/day1/day1.txt")
+    val instructions = fileUtils.readLinesToInstruction();
+
+    var currentPos = 50;
+    var counter = 0;
+    for (instruction in instructions) {
+        if (instruction.direction == "L") {
+            val newPos = moveLeft(currentPos, instruction.value)
+            if (newPos == 0) {
+                counter++
+            }
+            currentPos = newPos
+        }
+        if (instruction.direction == "R") {
+            val newPos = moveRight(currentPos, instruction.value)
+            if (newPos == 0) {
+                counter++
+            }
+            currentPos = newPos
+        }
     }
-    println(arr.joinToString())
 
-    val fileUtils = FileUtils("src/main/kotlin/day1/example.txt")
-    val instructions = fileUtils.readLinesToArray();
+    println("Result: $counter")
 
-    println(instructions.joinToString())
 
+}
+
+fun moveLeft(start: Int, steps: Int): Int {
+    var current = start
+    var moves = 0
+
+    do {
+        moves++
+        current -= 1
+        if (current < 0)
+            current = 99
+    } while (moves < steps)
+
+    return current;
+}
+
+fun moveRight(start: Int, steps: Int): Int {
+    var current = start
+    var moves = 0
+
+    do {
+        moves++
+        current += 1
+        if (current > 99)
+            current = 0
+    } while (moves < steps)
+
+    return current;
 }
