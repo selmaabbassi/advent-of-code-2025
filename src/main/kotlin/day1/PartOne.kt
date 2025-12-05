@@ -28,7 +28,7 @@ fun main() {
 
 }
 
-fun moveLeft(start: Int, steps: Int): Int {
+private fun moveLeft(start: Int, steps: Int): Int {
     var current = start
     var moves = 0
 
@@ -42,7 +42,7 @@ fun moveLeft(start: Int, steps: Int): Int {
     return current;
 }
 
-fun moveRight(start: Int, steps: Int): Int {
+private fun moveRight(start: Int, steps: Int): Int {
     var current = start
     var moves = 0
 
