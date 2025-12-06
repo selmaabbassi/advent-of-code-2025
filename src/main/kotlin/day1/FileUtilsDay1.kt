@@ -1,11 +1,9 @@
 package day1
 
+import FileUtils
 import java.io.File
 
-class FileUtils(val filename: String) {
-    fun readLinesToArray(): List<String> {
-        return File(filename).readLines()
-    }
+class FileUtilsDay1(filename: String) : FileUtils(filename) {
 
     fun readLinesToInstruction(): List<Instruction> {
         val instructions = ArrayList<Instruction>()

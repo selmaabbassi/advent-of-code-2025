@@ -1,8 +1,8 @@
 package day1
 
 fun main() {
-    val fileUtils = FileUtils("src/main/kotlin/day1/day1.txt")
-    val instructions = fileUtils.readLinesToInstruction();
+    val fileUtilsDay1 = FileUtilsDay1("src/main/kotlin/day1/day1.txt")
+    val instructions = fileUtilsDay1.readLinesToInstruction();
 
     var currentPos = 50;
     var counter = 0;
