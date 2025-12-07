@@ -19,9 +19,4 @@ class RangeTest {
         assertTrue(range.isInvalidPartTwo("222222"))
         assertTrue(range.isInvalidPartTwo("446446"))
     }
-
-    @Test
-    fun contains() {
-        assertFalse("1" in "01")
-    }
 }
