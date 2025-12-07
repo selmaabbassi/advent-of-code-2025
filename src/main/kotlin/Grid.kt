@@ -1,12 +1,12 @@
 class Grid(val input: List<String>) {
     val map = asMap()
 
-    fun asMap(): Map<Pair<Int, Int>, Char> {
+    fun asMap(): MutableMap<Pair<Int, Int>, Char> {
         return input.flatMapIndexed { y, line ->
             line.mapIndexed { x, c ->
                 (x to y) to c
             }
-        }.toMap()
+        }.toMap().toMutableMap()
     }
 
     fun getAdjacentVal(current: Pair<Int, Int>, direction: Direction): Char? {
