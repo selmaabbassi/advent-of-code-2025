@@ -4,7 +4,7 @@ import FileUtils
 import Grid
 
 fun main() {
-    val fileUtils = FileUtils("src/main/kotlin/day4/day4.txt")
+    val fileUtils = FileUtils("day4", "day4")
     val grid = Grid(fileUtils.readLinesToArray());
 
     val forkliftOptimizer = ForkliftOptimizer(grid)

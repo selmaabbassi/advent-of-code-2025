@@ -2,7 +2,7 @@ package day2
 
 import FileUtils
 
-class FileUtilsDay2(filename: String) : FileUtils(filename) {
+class FileUtilsDay2(filename: String, day: String) : FileUtils(filename, day) {
 
     fun readLinesToIdRanges(): List<Range> {
         val text = readLinesToText()

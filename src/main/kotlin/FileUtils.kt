@@ -1,11 +1,13 @@
 import java.io.File
 
-open class FileUtils(val filename: String) {
+open class FileUtils(filename: String, day: String) {
+    val filePath: String = "src/main/kotlin/$day/$filename.txt"
+
     fun readLinesToArray(): List<String> {
-        return File(filename).readLines()
+        return File(filePath).readLines()
     }
 
     fun readLinesToText(): String {
-        return File(filename).readText().trim()
+        return File(filePath).readText().trim()
     }
 }

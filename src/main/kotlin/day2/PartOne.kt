@@ -1,7 +1,7 @@
 package day2
 
 fun main() {
-    val fileUtilsDay2 = FileUtilsDay2("src/main/kotlin/day2/day2.txt")
+    val fileUtilsDay2 = FileUtilsDay2("day2", "day2")
     val ranges = fileUtilsDay2.readLinesToIdRanges()
 
     val allInvalidIds = ArrayList<Long>()
