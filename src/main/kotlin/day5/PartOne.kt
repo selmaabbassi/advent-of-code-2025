@@ -3,7 +3,24 @@ package day5
 import FileUtils
 
 fun main() {
-    val fileUtils = FileUtils("example", "day5")
+    val fileUtils = FileUtils("day5", "day5")
     val text = fileUtils.readLinesToText()
-    println(text)
+
+    val input = text.split("\n\n")
+    val rangesInput = input[0].split("\n")
+    val ids = input[1].split("\n").map { it.trim().toLong() }
+
+    val ranges = rangesInput.map { range -> Range(range) }.toList()
+
+    val freshIds = mutableSetOf<Long>()
+
+    for (id in ids) {
+        for (range in ranges) {
+            if (range.isFresh(id)) {
+                freshIds.add(id)
+            }
+        }
+    }
+
+    println("Result ${freshIds.size}")
 }
