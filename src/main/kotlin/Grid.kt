@@ -19,6 +19,26 @@ class Grid(val input: List<String>) {
         return newPos
     }
 
+    fun maxCol(): Int {
+        return map.keys.maxOf { it.first }
+    }
+
+    fun maxRow(): Int {
+        return map.keys.maxOf { it.second }
+    }
+
+    fun getCol(col: Int): List<Char> {
+        return map.filter { (k, _) -> k.first == col }.entries
+            .sortedBy { it.key.first }
+            .map { it.value }
+    }
+
+    fun getRow(col: Int): List<Char> {
+        return map.filter { (k, _) -> k.second == col }.entries
+            .sortedBy { it.key.second }
+            .map { it.value }
+    }
+
     fun printMap() {
         val maxX = map.keys.maxOfOrNull { it.first } ?: 0
         val maxY = map.keys.maxOfOrNull { it.second } ?: 0
