@@ -1,7 +1,7 @@
 package day4
 
-import FileUtils
 import Grid
+import utils.FileUtils
 
 fun main() {
     val fileUtils = FileUtils("day4", "day4")

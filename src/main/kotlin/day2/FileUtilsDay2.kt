@@ -1,6 +1,6 @@
 package day2
 
-import FileUtils
+import utils.FileUtils
 
 class FileUtilsDay2(filename: String, day: String) : FileUtils(filename, day) {
 

@@ -1,6 +1,6 @@
 package day5
 
-import FileUtils
+import utils.FileUtils
 
 fun main() {
     val fileUtils = FileUtils("day5", "day5")

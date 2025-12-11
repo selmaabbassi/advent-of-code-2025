@@ -1,6 +1,6 @@
 package day1
 
-import FileUtils
+import utils.FileUtils
 import java.io.File
 
 class FileUtilsDay1(filename: String, day: String) : FileUtils(filename, day) {
