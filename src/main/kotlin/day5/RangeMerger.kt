@@ -1,5 +1,8 @@
 package day5
 
+/**
+ * Interval merging algorithm
+ */
 class RangeMerger() {
 
     fun merge(ranges: List<Range>): List<Range> {

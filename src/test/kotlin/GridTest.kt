@@ -20,7 +20,7 @@ class GridTest {
     fun move() {
         val input = listOf("ABC", "DEF", "GHI")
         val grid = Grid(input)
-        val adjacent = grid.getAdjacentVal(0 to 0, Direction.DOWN)
+        val adjacent = grid.nextVal(0 to 0, Direction.DOWN)
         assertEquals('D', adjacent)
     }
 

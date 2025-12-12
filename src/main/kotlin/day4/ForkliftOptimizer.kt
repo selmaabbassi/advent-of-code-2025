@@ -54,8 +54,8 @@ class ForkliftOptimizer(val grid: Grid) {
     fun getAdjacentPaperRollsInAllDirections(current: Pair<Int, Int>): Set<Pair<Int, Int>> {
         val adjacent: MutableSet<Pair<Int, Int>> = mutableSetOf()
         for (direction in Direction.entries) {
-            if (grid.getAdjacentVal(current, direction) == '@') {
-                adjacent.add(grid.getAdjacentPos(current, direction))
+            if (grid.nextVal(current, direction) == '@') {
+                adjacent.add(grid.nextPos(current, direction))
             }
         }
         return adjacent

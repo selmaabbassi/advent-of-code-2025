@@ -9,12 +9,12 @@ class Grid(val input: List<String>) {
         }.toMap().toMutableMap()
     }
 
-    fun getAdjacentVal(current: Pair<Int, Int>, direction: Direction): Char? {
+    fun nextVal(current: Pair<Int, Int>, direction: Direction): Char? {
         val newPos = direction.move(current)
         return map[newPos]
     }
 
-    fun getAdjacentPos(current: Pair<Int, Int>, direction: Direction): Pair<Int, Int> {
+    fun nextPos(current: Pair<Int, Int>, direction: Direction): Pair<Int, Int> {
         val newPos = direction.move(current)
         return newPos
     }
@@ -25,6 +25,10 @@ class Grid(val input: List<String>) {
 
     fun maxRow(): Int {
         return map.keys.maxOf { it.second }
+    }
+
+    fun isOutOfGrid(current: Pair<Int, Int>): Boolean {
+        return current.first > maxCol() || current.second > maxRow()
     }
 
     fun getCol(col: Int): List<Char> {
