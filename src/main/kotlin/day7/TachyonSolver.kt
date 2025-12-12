@@ -7,36 +7,34 @@ class TachyonSolver(val grid: Grid) {
 
     fun processBeams(): Int {
         val start = getStartPosition()
-        val visited: MutableSet<Pair<Int, Int>> = mutableSetOf()
-        return process(start, 0, visited)
+        val visited = mutableSetOf<Pair<Int, Int>>()
+        return process(start, visited)
     }
 
-    fun getStartPosition(): Pair<Int, Int> {
-        val start = grid.map.entries.find { it.value == 'S' }?.key
-        checkNotNull(start) { throw IllegalStateException("Can't find start position") }
-        return start
+    private fun getStartPosition(): Pair<Int, Int> {
+        return grid.map.entries.firstOrNull { it.value == 'S' }?.key
+            ?: error("Can't find start position")
     }
 
-    fun process(start: Pair<Int, Int>, counter: Int, visited: MutableSet<Pair<Int, Int>>): Int {
+    /**
+     * Depth-First-Search algorithm (DFS)
+     */
+    private fun process(start: Pair<Int, Int>, visited: MutableSet<Pair<Int, Int>>): Int {
         if (grid.isOutOfGrid(start)) {
-            return counter
+            return 0
         }
         var current = start
-        var counter = counter
         val visited = visited
 
         do {
             current = grid.nextPos(current, Direction.DOWN)
         } while (grid.map[current] == '.')
 
-        if (grid.map[current] == '^' && !visited.contains(current)) {
-            visited.add(current)
-            counter++
+        if (grid.map[current] == '^' && visited.add(current)) {
             val left = grid.nextPos(current, Direction.LEFT)
             val right = grid.nextPos(current, Direction.RIGHT)
-            counter = process(left, counter, visited)
-            counter = process(right, counter, visited)
+            return 1 + process(left, visited) + process(right, visited)
         }
-        return counter
+        return 0
     }
 }
