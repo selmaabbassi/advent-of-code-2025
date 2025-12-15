@@ -31,6 +31,10 @@ class Grid(val input: List<String>) {
         return current.first > maxCol() || current.second > maxRow()
     }
 
+    fun isMax(current: Pair<Int, Int>): Boolean {
+        return current.first == maxCol() || current.second == maxRow()
+    }
+
     fun getCol(col: Int): List<Char> {
         return map.filter { (k, _) -> k.first == col }.entries
             .sortedBy { it.key.first }
